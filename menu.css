@@ -1,0 +1,122 @@
+.menu-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.toggler {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  opacity: 0;
+}
+
+.hamburger {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 60px;
+  height: 60px;
+  padding: 1rem;
+  background: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Hamburger line */
+
+.hamburger > div {
+  position: relative;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s ease;
+}
+
+/* more lines */
+.hamburger > div:before,
+.hamburger > div:after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: -10px;
+  width: 100%;
+  height: 2px;
+  background: inherit;
+}
+
+.hamburger > div:after{
+  top: 10px;
+}
+
+/* animation hamburger by expert sameen*/
+/* For my own knowledge + selects only 1 adjacent sibling */
+/* This point ocnfusing */
+.toggler:checked + .hamburger > div{
+  transform: rotate(135deg);
+}
+
+/* to make it cross */
+.menu-wrap .toggler:checked + .hamburger > div:before,
+.menu-wrap .toggler:checked + .hamburger > div:after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+/* menu center working */
+.menu {
+  width: 100vw;
+  height: 100vh; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+/* Overlay the menu */
+.menu > div{
+  background: var(--overlay-color);
+  width: 200vw;
+  height: 200vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* transform: scale(0); */
+  transition: all 0.4s ease;
+}
+
+.menu > div > div {
+  text-align: center;
+  max-width: 90vw;
+  max-height: 100vh;
+  /* opacity: 0; */
+  transition: opacity 0.4s ease;
+}
+
+.menu > div > div > ul > li{
+  list-style: none;
+  padding: 10px;
+  font-size: 26px;
+  color: white;
+}
+
+.menu > div > div > ul > li > a{
+  text-decoration: none;
+  color: white;
+  transition: color 0.4s ease;
+}
+
+.menu > div > div > ul > li > a:hover{
+  color: chocolate;
+}
